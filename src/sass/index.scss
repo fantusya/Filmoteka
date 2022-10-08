@@ -5,7 +5,8 @@
 @import 'base/base', 'base/typography', 'base/reset', 'base/container',
   'base/animations';
 
-@import 'layout/header', 'layout/home', 'layout/library', 'layout/footer';
+@import 'layout/header', 'layout/home', 'layout/library', 'layout/footer',
+  'layout/modal-students';
 
 @import 'components/form', 'components/footer-modal', 'components/pagination',
   'components/modal';
