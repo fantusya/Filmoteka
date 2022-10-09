@@ -10,8 +10,13 @@ export const refs = {
   btnAddToWatched: document.querySelector('.modal_watched'),
   btnAddToQueue: document.querySelector('.modal_queue'),
 
+  changeBgColorBtn: document.querySelectorAll('.switch input'),
+
   // search
   DEBOUNCE_DELAY: 300,
   inputSearch: document.querySelector('.search-form'),
   filmsSearchList: document.querySelector('.search-form__list'),
+
+  // header
+  headerContainer: document.querySelector('.page-header__container'),
 };
