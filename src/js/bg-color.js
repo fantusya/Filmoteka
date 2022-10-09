@@ -1,41 +1,37 @@
 import { refs } from './refs';
-export { changeBgColorBtn, BgColorExportData };
 
-console.log(refs.headerContainer);
-
+// Добавление кнопки в HTML
 function changeBgColorBtn() {
   const bgColorBtn = `
-  <input id="on" type="radio" name="status" value="on" />
+  <input id="on" type="radio" name="status" value="on" checked="checked"/>
   <label for="on">on</label>
-  <input id="off" type="radio" name="status" value="off"
-  checked="checked"/>
+  <input id="off" type="radio" name="status" value="off"/>
   <label for="off">off</label>`;
 
   const changeBgColorBtn = document.createElement('div');
   changeBgColorBtn.classList.add('switch');
   refs.headerContainer.append(changeBgColorBtn);
-    changeBgColorBtn.insertAdjacentHTML('beforeend', bgColorBtn);
+  changeBgColorBtn.insertAdjacentHTML('beforeend', bgColorBtn);
 }
 changeBgColorBtn();
 
-// export default
+// Доп функции
+const refsChangeBgColorBtn = document.querySelectorAll('.switch input');
+
 class BgColorExportData {
   constructor() {
     this.formData = {};
     this.STORAGE_KEY = 'bg-color-data';
   }
-
   populateData() {
     const savedData = localStorage.getItem(this.STORAGE_KEY);
     if (savedData) {
       this.formData = JSON.parse(savedData);
       document.body.dataset.switch = this.formData.status;
 
-      // console.log(this.formData);
-
-      if (this.formData.status === 'on') {
-        refs.changeBgColorBtn[0].checked = 'checked';
-      } else refs.changeBgColorBtn[1].checked = 'checked';
+      if (this.formData.status === 'off') {
+        refsChangeBgColorBtn[1].checked = 'checked';
+      } else refsChangeBgColorBtn[0].checked = 'checked';
     }
   }
 
@@ -45,3 +41,15 @@ class BgColorExportData {
     localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.formData));
   }
 }
+
+// Вызов функции переключения цвета фона
+const bgColorExportData = new BgColorExportData();
+
+bgColorExportData.populateData();
+
+refsChangeBgColorBtn.forEach(radio => {
+  radio.addEventListener('change', () => {
+    // console.log(radio);
+    bgColorExportData.onBgColorBtnClick(radio);
+  });
+});
