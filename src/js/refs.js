@@ -16,9 +16,9 @@ export const refs = {
   DEBOUNCE_DELAY: 300,
   formSearch: document.querySelector('.search-form'),
   filmsSearchList: document.querySelector('.search-form__list'),
+  inputSearch: document.querySelector('.search-form__input'),
 
   // header
   headerContainer: document.querySelector('.page-header__container'),
-  inputSearch: document.querySelector('.search-form__input'),
 
 };

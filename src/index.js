@@ -16,3 +16,6 @@ import './js/api/loadModalCard';
 
 // scroll-up-btn
 import './js/scroll-up-btn';
+
+// change BG color
+import './js/bg-color';

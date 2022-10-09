@@ -1,22 +1,25 @@
 import { refs } from './refs';
+export { changeBgColorBtn, BgColorExportData };
 
-const changeBgColorBtn = refs.headerContainer.createElement('div');
+console.log(refs.headerContainer);
 
-changeBgColorBtn.innerHTML = `
-<div class="switch">
-<input id="on" type="radio" name="status" value="on" />
-<label for="on">on</label>
-<input
-  id="off"
-  type="radio"
-  name="status"
-  value="off"
-  checked="checked"
-/>
-<label for="off">off</label>
-</div>`;
+function changeBgColorBtn() {
+  const bgColorBtn = `
+  <input id="on" type="radio" name="status" value="on" />
+  <label for="on">on</label>
+  <input id="off" type="radio" name="status" value="off"
+  checked="checked"/>
+  <label for="off">off</label>`;
 
-export default class BgColorExportData {
+  const changeBgColorBtn = document.createElement('div');
+  changeBgColorBtn.classList.add('switch');
+  refs.headerContainer.append(changeBgColorBtn);
+    changeBgColorBtn.insertAdjacentHTML('beforeend', bgColorBtn);
+}
+changeBgColorBtn();
+
+// export default
+class BgColorExportData {
   constructor() {
     this.formData = {};
     this.STORAGE_KEY = 'bg-color-data';
