@@ -6,21 +6,24 @@
 }
 
 .btn_library {
-  width: 148px;
-  height: 42px;
   color: white;
   margin-top: 40px;
 
-  // @media screen and (max-width: #{$tablet - 0.02}) {
-  //   width: 129.53px;
-  //   height: 44px;
-  //   margin-top: 62px;
-  // }
+  @include mq(desktop) {
+    width: 148px;
+    height: 42px;
+  }
 
-  // @media screen and (min-width: $tablet) and (max-width: #{$desktop - 0.02}) {
-  //   width: 152px;
-  //   height: 44px;
-  // }
+  @include mq(mobile) {
+    width: 129.53px;
+    height: 44px;
+    margin-top: 62px;
+  }
+
+  @include mq(tablet) {
+    width: 152px;
+    height: 44px;
+  }
 
   /* transform: translateX(-50%); */
   border: 1px solid #ffffff;
@@ -48,15 +51,17 @@
 }
 
 .watched {
-  margin-right: 16px;
-  /* margin-left: 484px; */
-  // @media screen and (max-width: #{$tablet - 0.02}) {
-  //   margin-right: 20px;
-  // }
+  @include mq(desktop) {
+    margin-right: 16px;
+  }
 
-  // @media screen and (min-width: $tablet) and (max-width: #{$desktop - 0.02}) {
-  //   margin-right: 32px;
-  // }
+  @include mq(mobile) {
+    margin-right: 20px;
+  }
+
+  @include mq(tablet) {
+    margin-right: 32px;
+  }
 }
 
 .btn:current {
@@ -69,18 +74,20 @@
 }
 
 .btn_modal {
-  width: 136px;
   height: 44px;
   margin-top: 20px;
 
-  // @media screen and (max-width: #{$tablet - 0.02}) {
-  //   width: 110px;
-  //
-  // }
+  @include mq(desktop) {
+    width: 136px;
+  }
 
-  // @media screen and (min-width: $tablet) and (max-width: #{$desktop - 0.02}) {
-  //   width: 125px;
-  // }
+  @include mq(mobile) {
+    width: 110px;
+  }
+
+  @include mq(tablet) {
+    width: 125px;
+  }
 
   /* transform: translateX(-50%); */
   border: 1px solid #000000;
@@ -107,16 +114,16 @@
     background-color 250ms linear; */
 }
 
-.watched {
+.modal_watched {
   margin-right: 15px;
-  /* margin-left: 484px; */
-  // @media screen and (max-width: #{$tablet - 0.02}) {
-  //   margin-right: 20px;
-  // }
 
-  // @media screen and (min-width: $tablet) and (max-width: #{$desktop - 0.02}) {
-  //   margin-right: 15px;
-  // }
+  @include mq(mobile) {
+    margin-right: 20px;
+  }
+
+  @include mq(tablet) {
+    margin-right: 15px;
+  }
 }
 
 .btn:current {

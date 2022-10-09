@@ -1,1 +1,1 @@
-import './js/btn_library';
+import './js/modal-btns';
