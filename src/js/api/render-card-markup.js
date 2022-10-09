@@ -29,13 +29,9 @@ export default function makingMarkup(results) {
                 <div class="movie-card__cont">
                   <h2 class="movie-card__title">${title || name}</h2>
                     <p class="movie-card__info">
-                        <b>${gettingGenresList(genre_ids)} | </b>
-                    </p>
-                    <p class="movie-card__info">
-                        <b>${
-                          setReleaseDate(release_date) ||
-                          setReleaseDate(first_air_date)
-                        }</b>
+                        ${gettingGenresList(genre_ids)} | ${
+          setReleaseDate(release_date) || setReleaseDate(first_air_date)
+        }
                     </p>
                        <p class="movie-card__raiting">
                         <b>${setReleaseVote(vote_average)}</b>
