@@ -19,3 +19,9 @@ import './js/scroll-up-btn';
 
 // change BG color
 import './js/bg-color';
+
+// MODAL IN FOOTER
+import './js/modal-students';
+
+// animations
+import './js/vendors/aos';
