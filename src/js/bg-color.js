@@ -10,6 +10,7 @@ function changeBgColorBtn() {
 
   const changeBgColorBtn = document.createElement('div');
   changeBgColorBtn.classList.add('switch');
+  
   refs.headerContainer.append(changeBgColorBtn);
   changeBgColorBtn.insertAdjacentHTML('beforeend', bgColorBtn);
 }
