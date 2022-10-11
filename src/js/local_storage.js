@@ -55,7 +55,6 @@ export function getQueueFilms() {
       addScreenSaver();
       return;
     }
-
     const parsedFilms = JSON.parse(saveFilms);
     // Перевірка на порожній масив в localStorage
     if (parsedFilms.length === 0) {
