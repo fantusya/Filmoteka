@@ -1,0 +1,1 @@
+{"mappings":"gfACAA,EAAA,S","sources":["src/library.js"],"sourcesContent":["// CHANGE COLOR OF HEADER-BUTTONS\nimport './js/library-header-btns';\n\n// CHANGE TEXT OF MODAL-BTNS\nimport './js/modal-btns';\n\n// OPEN MODAL CARD\nimport './js/api/loadModalCard';\n"],"names":["parcelRequire"],"version":3,"file":"library.57dd21ba.js.map"}
