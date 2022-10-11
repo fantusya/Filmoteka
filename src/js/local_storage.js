@@ -1,6 +1,9 @@
 import { refs } from './refs';
 import makingMarkup from './api/render-card-markup';
-import { insertFilmsMarkupToLibrary } from './api/insertingIntoDifferentContainers';
+import {
+  insertFilmsMarkupToHome,
+  insertFilmsMarkupToLibrary,
+} from './api/insertingIntoDifferentContainers';
 
 const arrayFilmsQueue = [];
 
@@ -12,6 +15,7 @@ export function addWatchedLocalStorage(obj) {
 
   arrayFilmsWatched.push(obj);
 
+  arrayFilmsWatched.push(obj);
   localStorage.setItem('watched', JSON.stringify(arrayFilmsWatched));
   return arrayFilmsWatched;
 }
@@ -24,7 +28,7 @@ export function addQueueLocalStorage(obj) {
 }
 
 export function getWatchedFilms() {
-  clearLibrary();
+  // clearLibrary();
   try {
     const saveFilms = localStorage.getItem('watched');
     //Якщо в localStorage немає ключа watched - показуємо заглушку
@@ -40,7 +44,7 @@ export function getWatchedFilms() {
     }
 
     const renderWatched = makingMarkup(parsedFilms);
-    insertFilmsMarkupToLibrary(renderWatched);
+    insertFilmsMarkupToHome(renderWatched);
   } catch (error) {
     console.log(error);
   }
@@ -64,7 +68,7 @@ export function getQueueFilms() {
     }
 
     const renderQueue = makingMarkup(parsedFilms);
-    insertFilmsMarkupToLibrary(renderQueue);
+    insertFilmsMarkupToHome(renderQueue);
   } catch (error) {
     console.log(error);
   }
