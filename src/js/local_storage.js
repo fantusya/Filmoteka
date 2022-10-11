@@ -44,10 +44,11 @@ export function getWatchedFilms() {
     console.log(error);
   }
   
-  export function getQueueFilms () {
-      try {
-          const saveFilms = localStorage.getItem('queue');
-          const parsedFilms = JSON.parse(saveFilms);
+  // export function getQueueFilms () {
+  //     try {
+  //         const saveFilms = localStorage.getItem('queue');
+  //         const parsedFilms = JSON.parse(saveFilms);
+
 
 export function getQueueFilms() {
   clearLibrary();
