@@ -14,6 +14,7 @@ export default function makingMarkup(results) {
         poster_path,
         genre_ids,
         release_date,
+        first_air_date,
         vote_average,
         id,
       }) => {
@@ -49,7 +50,10 @@ export default function makingMarkup(results) {
                         } | </b>
                     </p>
                     <p class="movie-card__info">
-                        <b>${setReleaseDate(release_date)} 
+                        <b>${
+                          setReleaseDate(release_date, first_air_date) ||
+                          `No data`
+                        } 
                         </b>
                     </p>
                        
