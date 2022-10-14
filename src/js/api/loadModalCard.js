@@ -46,7 +46,7 @@ function clickOnMovie(e) {
   document.querySelector('#watched-btn').addEventListener('click', () => {
     // -----------Видалення фільму з сторінки Home----------
     //  Потрібно узгодити із local.storage.js!!!!!!!!!!!
-    // let arrayFilmsWatched = [];
+    //   let arrayFilmsWatched = [];
     // const w = localStorage.getItem('watched');
     // if (w) {
     //   arrayFilmsWatched = JSON.parse(w);
@@ -54,7 +54,10 @@ function clickOnMovie(e) {
 
     // // Перевірка на наявність об'єкта в масиві фільмів "WATCHED"
     // const isAddedFilm = arrayFilmsWatched.find(arr => arr.id == currentId);
-    // isAddedFilm
+    //     if (isAddedFilm) {
+    //   console.log('ЗАПУСК!!!!!!!!!!!');
+    //   textModalBtn(currentId);
+    // }
     //   ? deleteWatched(currentMovie)
     //   : addWatchedLocalStorage(currentMovie);
     // ----------------------------------
@@ -68,6 +71,7 @@ function clickOnMovie(e) {
       currentMovie,
       document.querySelector('#watched-btn')
     );
+
     // textModalBtn(currentId);
   });
 
@@ -93,13 +97,13 @@ function clickOnMovie(e) {
     addQueueLocalStorage(currentMovie, document.querySelector('#queue-btn'));
     // textModalBtn(currentId);
   });
-  /////////////////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////b//////////////////////////
 
   //* слухач на відкриття трейлеру
   const btnTrailer = document.querySelector('.movie__btn-trailer');
   btnTrailer.addEventListener('click', onTrailerClickBtn(currentId));
 
-  // textModalBtn(currentId);
+  textModalBtn(currentId);
 }
 
 function onCloseModalBtnClick() {
