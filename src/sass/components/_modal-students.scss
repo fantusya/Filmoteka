@@ -56,7 +56,7 @@ li.circle:focus {
 
 // ------------------------------------------------
 .metod {
-  border: 8px solid rgb(226, 167, 47);
+  border: 8px solid var(--secondary-text-cl);
   border-radius: 50%;
   width: 400px;
   height: 400px;
@@ -107,7 +107,7 @@ li.circle:focus {
   width: 400px;
   height: 400px;
   position: absolute;
-  background-color: rgb(216, 162, 55);
+  background-color: var(--secondary-text-cl);
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -120,12 +120,14 @@ li.circle:focus {
 .data-student_name {
   font-size: 30;
   margin-top: 70px;
+  color: var(--main-bg-cl);
 }
 .data-student_information {
   text-indent: 20px;
   font-size: 20;
-  margin-top: 50px;
-  margin-right: 50px;
-  margin-left: 50px;
+  margin-top: 40px;
+  margin-right: 70px;
+  margin-left: 70px;
   line-height: 25px;
+  color: var(--main-bg-cl);
 }
