@@ -60,10 +60,9 @@ export default class MoviesApiService {
     https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${API_KEY}&language=en-US`;
 
     return fetch(linkForSearchById).then(response => {
-      if (!response.success) {
+      if (!response.ok) {
         renderBadRequest();
-        console.log('hi');
-        return;
+        throw new Error(response.status);
       }
         return response.json();     
     })

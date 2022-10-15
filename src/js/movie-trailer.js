@@ -11,7 +11,7 @@ function onTrailerClickBtn(currentId) {
         if (films.results.length === 0) {
           renderBadRequest()
           return;
-        }
+        } 
         renderTrailer(films.results[0].key);
     });
   } catch (err) {
