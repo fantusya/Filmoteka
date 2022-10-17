@@ -1,14 +1,22 @@
-import fetchFilms from "./searchFilmByKeyword/fetch-trailer";
-import renderTrailer from './searchFilmByKeyword/render-trailer';
+// import MoviesApiService from './api/moviesApiServiceClass';
+// import renderTrailer from './searchFilmByKeyword/render-trailer';
+// import renderBadRequest from './searchFilmByKeyword/renderBadRequest';
 
-function onTrailerClickBtn(currentId) {
-  try {
-      fetchFilms(currentId).then(films => {
-        renderTrailer(films.results[0].key);
-    });
-  } catch (err) {
-    err => console.log(err);
-  }
-};
+// const movieApiServise = new MoviesApiService();
 
-export { onTrailerClickBtn };
+// function onTrailerClickBtn(currentId) {
+//   try {
+//     movieApiServise
+//       .fetchFilmTrailer(currentId).then(films => {
+//         if (films.results.length === 0) {
+//           renderBadRequest()
+//           return;
+//         } 
+//         renderTrailer(films.results[0].key);
+//     });
+//   } catch (err) {
+//     err => console.log(err);
+//   }
+// };
+
+// export { onTrailerClickBtn };

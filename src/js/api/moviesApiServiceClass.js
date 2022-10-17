@@ -1,6 +1,8 @@
 import API_KEY from './constants/apiKeys';
 import { BASE_TRENDING_MOVIES_URL } from './constants/baseUrls';
 import { BASE_GENRE_URL } from './constants/baseUrls';
+//trailer
+import renderBadRequest from '.././searchFilmByKeyword/renderBadRequest';
 
 export default class MoviesApiService {
   constructor() {
@@ -51,6 +53,20 @@ export default class MoviesApiService {
       return response.json();
     });
   }
+
+  //FETCH TRAILER
+  // fetchFilmTrailer(movie_id) {
+  //   const linkForSearchById = `
+  //   https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${API_KEY}&language=en-US`;
+
+  //   return fetch(linkForSearchById).then(response => {
+  //     if (!response.ok) {
+  //       renderBadRequest();
+  //       throw new Error(response.status);
+  //     }
+  //       return response.json();     
+  //   })
+  // };
 
   setLanguage() {
     if (!localStorage.getItem('lang')) {
