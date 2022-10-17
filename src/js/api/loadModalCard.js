@@ -110,10 +110,10 @@ function clickOnMovie(e) {
   /////////////////////////////////////////////////////////////////////////////
 
   //* слухач на відкриття трейлеру
-  const btnTrailer = document.querySelector('.movie__btn-trailer');
-  btnTrailer.addEventListener('click', onTrailerClickBtn(currentId));
+  // const btnTrailer = document.querySelector('.movie__btn-trailer');
+  // btnTrailer.addEventListener('click', onTrailerClickBtn(currentId));
 
-  textModalBtn(currentId);
+  // textModalBtn(currentId);
 }
 
 function onCloseModalBtnClick() {
@@ -146,9 +146,7 @@ function makingModalCardMarkup(obj) {
     : (imagePath = `${BASE_POSTER_URL}/${obj.poster_path}`);
   const markup = `<div class="movie__container--left-side">              
                   <img class="movie__image" src="${imagePath}"
-                    alt="${obj.title || obj.name}" />
-                    <button type="button" class="movie__btn-trailer">
-                    </button>                
+                    alt="${obj.title || obj.name}" />               
             </div>
             <div class="movie__container--rigth-side">
                 <h2 class="movie__title">${obj.title || obj.name}</h2>

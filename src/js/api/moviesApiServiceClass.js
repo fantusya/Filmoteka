@@ -55,18 +55,18 @@ export default class MoviesApiService {
   }
 
   //FETCH TRAILER
-  fetchFilmTrailer(movie_id) {
-    const linkForSearchById = `
-    https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${API_KEY}&language=en-US`;
+  // fetchFilmTrailer(movie_id) {
+  //   const linkForSearchById = `
+  //   https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${API_KEY}&language=en-US`;
 
-    return fetch(linkForSearchById).then(response => {
-      if (!response.ok) {
-        renderBadRequest();
-        throw new Error(response.status);
-      }
-        return response.json();     
-    })
-  };
+  //   return fetch(linkForSearchById).then(response => {
+  //     if (!response.ok) {
+  //       renderBadRequest();
+  //       throw new Error(response.status);
+  //     }
+  //       return response.json();     
+  //   })
+  // };
 
   setLanguage() {
     if (!localStorage.getItem('lang')) {
