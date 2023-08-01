@@ -1,15 +1,15 @@
 import Pagination from 'tui-pagination';
-import MoviesApiService from './api/moviesApiServiceClass';
-import Spinner from './spinner';
-import makingMarkup from './api/render-card-markup';
-import { insertFilmsMarkupToHome } from './api/insertingIntoDifferentContainers';
-import { refs } from './refs';
-import { onFetchError } from './api/onFetchError';
+import MoviesApiService from '../api/moviesApiServiceClass';
+import Spinner from '../components/spinner';
+import makingMarkup from '../markups/cardItem';
+import { insertFilmsMarkupToHome } from '../helpers/insertingIntoDifferentContainers';
+import { refs } from '../constants/refs';
+import { onFetchError } from '../api/onFetchError';
 
 const moviesApiService = new MoviesApiService();
 const spinner = new Spinner();
 
-export function createPagination(total_results, searchQuery) {
+export function createPagination(total_results) {
   const container = document.getElementById('pagination');
   const options = {
     totalItems: total_results,
@@ -57,9 +57,9 @@ export function createPagination(total_results, searchQuery) {
     spinner.show();
 
     moviesApiService.page = event.page;
-    moviesApiService.query = searchQuery;
+    localStorage.setItem('page', moviesApiService.page);
     moviesApiService
-      .fetchSearchingMovies()
+      .fetchTrendingMovies()
       .then(({ results }) => {
         const markup = makingMarkup(results);
 

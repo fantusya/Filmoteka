@@ -1,4 +1,4 @@
-import { refs } from '../refs';
+import { refs } from '../constants/refs';
 
 // FUNCTION FOR INSERTING MARKUP TO HOME-CARDS-CONTAINER
 export const insertFilmsMarkupToHome = filmsMarkup =>

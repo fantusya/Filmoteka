@@ -1,8 +1,8 @@
 import i18next from 'i18next';
-import { refs } from './refs';
-import MoviesApiService from './api/moviesApiServiceClass';
-import makingMarkup from './api/render-card-markup';
-import { insertFilmsMarkupToHome } from './api/insertingIntoDifferentContainers';
+import { refs } from '../constants/refs';
+import MoviesApiService from '../api/moviesApiServiceClass';
+import makingMarkup from '../markups/cardItem';
+import { insertFilmsMarkupToHome } from '../helpers/insertingIntoDifferentContainers';
 
 const moviesApiService = new MoviesApiService();
 

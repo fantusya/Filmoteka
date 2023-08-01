@@ -1,14 +1,13 @@
 import Pagination from 'tui-pagination';
-import makingMarkup from './api/render-card-markup';
-import { insertFilmsMarkupToLibrary } from './api/insertingIntoDifferentContainers';
-import { refs } from './refs';
-import { clearLibrary } from './local_storage';
-import { addScreenSaver } from './local_storage';
+import makingMarkup from '../markups/cardItem';
+import { insertFilmsMarkupToLibrary } from '../helpers/insertingIntoDifferentContainers';
+import { refs } from '../constants/refs';
+import { clearLibrary } from '../helpers/storageActions';
+import { addScreenSaver } from '../helpers/storageActions';
 
 export const container = document.getElementById('pagination-library');
 export function createLibraryPagination(name) {
   let fullLibrary = JSON.parse(localStorage.getItem(`${name}`));
-  // console.log(fullLibrary);
 
   if (!fullLibrary || fullLibrary.length === 0) {
     try {
@@ -20,7 +19,6 @@ export function createLibraryPagination(name) {
     addScreenSaver();
     return;
   }
-  // console.log(fullLibrary.length);
 
   const options = {
     totalItems: fullLibrary.length,
@@ -48,12 +46,12 @@ export function createLibraryPagination(name) {
         '</a>',
     },
   };
+
   const mediaQuery = window.matchMedia('(max-width: 768px)');
   mediaQuery.addEventListener('change', handleMobileChange);
+
   function handleMobileChange(event) {
-    // console.log('EVENT: ', event);
     if (event.matches) {
-      // console.log('OPTIONS: ', options);
       options.visiblePages = 3;
     }
   }
@@ -81,8 +79,8 @@ export function createLibraryPagination(name) {
       return;
     }
 
-    const markup = items.slice(start, end);
-    const renderWatched = makingMarkup(markup);
+    const results = items.slice(start, end);
+    const renderWatched = makingMarkup(results);
     insertFilmsMarkupToLibrary(renderWatched);
   }
 }

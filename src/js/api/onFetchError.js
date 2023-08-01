@@ -1,5 +1,5 @@
-import Spinner from '../spinner';
-import { refs } from '../refs';
+import Spinner from '../components/spinner';
+import { refs } from '../constants/refs';
 
 const spinner = new Spinner();
 

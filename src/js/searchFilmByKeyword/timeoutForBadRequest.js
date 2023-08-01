@@ -1,4 +1,4 @@
-import { refs } from '../refs';
+import { refs } from '../constants/refs';
 
 export default function timeoutForBadRequest() {
   const markup = `<p class="search-form--badrequest">${translateBadRequest()}</p>`;

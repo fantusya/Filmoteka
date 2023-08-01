@@ -1,17 +1,14 @@
 import MoviesApiService from './moviesApiServiceClass';
-import Spinner from '../spinner';
-import makingMarkup from './render-card-markup';
-import { insertFilmsMarkupToHome } from './insertingIntoDifferentContainers';
-import { refs } from '../refs';
-import { createPagination } from '../pagination';
-import { BASE_POSTER_URL } from './render-card-markup';
+import Spinner from '../components/spinner';
+import makingMarkup from '../markups/cardItem';
+import { insertFilmsMarkupToHome } from '../helpers/insertingIntoDifferentContainers';
+import { createPagination } from '../pagination/pagination';
 import { onFetchError } from './onFetchError';
 
 const moviesApiService = new MoviesApiService();
 const spinner = new Spinner();
 
 // GETTING GENRES TO LOCALSTORAGE
-// DO NOT MOVE THIS FUNCTION!!!
 moviesApiService
   .fetchGenres()
   .then(({ genres }) => {
@@ -21,16 +18,20 @@ moviesApiService
   })
   .catch(error => console.log(error));
 
-// RENDERING MARKUP USING GENRES FROM LOCALSTORAGE
 spinner.show();
+
+// RENDERING MARKUP USING GENRES FROM LOCALSTORAGE
 moviesApiService
   .fetchTrendingMovies()
   .then(({ results, total_results }) => {
     const markup = makingMarkup(results);
 
     spinner.hide();
+
     insertFilmsMarkupToHome(markup);
+
     createPagination(total_results);
+
     localStorage.setItem(`currentFilm`, JSON.stringify(results));
   })
   .catch(onFetchError);

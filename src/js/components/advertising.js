@@ -1,4 +1,4 @@
-import { refs } from './refs';
+import { refs } from '../constants/refs';
 
 const ADVERTISING_BEGIN_DELAY = 5000;
 const ADVERTISING_END_DELAY = 10000;

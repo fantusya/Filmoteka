@@ -1,8 +1,7 @@
-import { refs } from './refs';
-import makingMarkup from './api/render-card-markup';
-import { insertFilmsMarkupToLibrary } from './api/insertingIntoDifferentContainers';
-import { createLibraryPagination, container } from './pagination-library';
-import { currentLibrary } from './library-header-btns';
+import { refs } from '../constants/refs';
+import { insertFilmsMarkupToLibrary } from './insertingIntoDifferentContainers';
+import { createLibraryPagination, container } from '../pagination/paginationLibrary';
+import { currentLibrary } from './libraryHeaderButtons';
 
 //ДОДАТИ ДО КЛЮЧА "WATCHED" В LOCAL STORAGE
 // Передано змінну style
@@ -73,8 +72,6 @@ export function getWatchedFilms() {
       return;
     }
 
-    // const renderWatched = makingMarkup(parsedFilms);
-    // insertFilmsMarkupToLibrary(renderWatched);
     createLibraryPagination(`${currentLibrary}`);
   } catch (error) {
     console.log(error);
@@ -98,8 +95,6 @@ export function getQueueFilms() {
       return;
     }
 
-    // const renderQueue = makingMarkup(parsedFilms);
-    // insertFilmsMarkupToLibrary(renderQueue);
     createLibraryPagination(`${currentLibrary}`);
   } catch (error) {
     console.log(error);
@@ -108,7 +103,6 @@ export function getQueueFilms() {
 
 // Функція для видалення фільмів з масиву WATCHED
 export function deleteWatched(element, style) {
-  // console.log('style', style);
   const arrayFromLocStorage = JSON.parse(localStorage.getItem('watched'));
   try {
     const index = arrayFromLocStorage.findIndex(arr => arr.id === element.id);
@@ -120,18 +114,14 @@ export function deleteWatched(element, style) {
   localStorage.setItem('watched', JSON.stringify(arrayFromLocStorage));
   // Додано умову застосування функції getWatchedFilms()
   if (style) {
-    // console.log('Видалення з головної сторінки');
     return;
   } else {
-    // getWatchedFilms();
     createLibraryPagination(`${currentLibrary}`);
-    // console.log('Видалення з бібліотеки!!!!!!!!!!!!');
   }
 }
 
 // Функція для видалення фільмів з масиву QUEUE
 export function deleteQueue(element, style) {
-  // console.log('style', style);
   const arrayFromLocStorage = JSON.parse(localStorage.getItem('queue'));
 
   try {
@@ -144,12 +134,9 @@ export function deleteQueue(element, style) {
   localStorage.setItem('queue', JSON.stringify(arrayFromLocStorage));
   // Додано умову застосування функції getWatchedFilms()
   if (style) {
-    // console.log('Видалення з головної сторінки');
     return;
   } else {
     createLibraryPagination(`${currentLibrary}`);
-    // getQueueFilms();
-    // console.log('Видалення з бібліотеки!!!!!!!!!!!!');
   }
 }
 

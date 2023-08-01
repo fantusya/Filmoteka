@@ -1,14 +1,12 @@
-import { refs } from './../refs';
-// import fetchFilms from './fetch_search_films';
+import { refs } from '../constants/refs';
 import MoviesApiService from '../api/moviesApiServiceClass';
-import Spinner from '../spinner';
-import makingMarkup from '../api/render-card-markup';
-import { insertFilmsMarkupToHome } from '../api/insertingIntoDifferentContainers';
-import { createPagination } from '../pagination-query';
+import Spinner from '../components/spinner';
+import makingMarkup from '../markups/cardItem';
+import { insertFilmsMarkupToHome } from '../helpers/insertingIntoDifferentContainers';
+import { createPagination } from '../pagination/paginationQuery';
 import timeoutForBadRequest from './timeoutForBadRequest';
 import { onFetchError } from '../api/onFetchError';
 
-// import { BASE_POSTER_URL } from '../api/render-card-markup';
 
 const movieApiServise = new MoviesApiService();
 const spinner = new Spinner();
@@ -21,7 +19,7 @@ function onSearchFilmByKeyword(e) {
 
   const searchFilms = e.currentTarget.elements.searchInput.value.trim();
   if (!searchFilms) {
-    return console.log('Field cannot be empty');
+    return 
   }
 
   movieApiServise.query = searchFilms;

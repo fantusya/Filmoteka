@@ -1,15 +1,15 @@
 import Pagination from 'tui-pagination';
-import MoviesApiService from './api/moviesApiServiceClass';
-import Spinner from './spinner';
-import makingMarkup from './api/render-card-markup';
-import { insertFilmsMarkupToHome } from './api/insertingIntoDifferentContainers';
-import { refs } from './refs';
-import { onFetchError } from './api/onFetchError';
+import MoviesApiService from '../api/moviesApiServiceClass';
+import Spinner from '../components/spinner';
+import makingMarkup from '../markups/cardItem';
+import { insertFilmsMarkupToHome } from '../helpers/insertingIntoDifferentContainers';
+import { refs } from '../constants/refs';
+import { onFetchError } from '../api/onFetchError';
 
 const moviesApiService = new MoviesApiService();
 const spinner = new Spinner();
 
-export function createPagination(total_results) {
+export function createPagination(total_results, searchQuery) {
   const container = document.getElementById('pagination');
   const options = {
     totalItems: total_results,
@@ -41,9 +41,7 @@ export function createPagination(total_results) {
   const mediaQuery = window.matchMedia('(max-width: 768px)');
   mediaQuery.addEventListener('change', handleMobileChange);
   function handleMobileChange(event) {
-    // console.log('EVENT: ', event);
     if (event.matches) {
-      // console.log('OPTIONS: ', options);
       options.visiblePages = 3;
     }
   }
@@ -57,9 +55,9 @@ export function createPagination(total_results) {
     spinner.show();
 
     moviesApiService.page = event.page;
-    localStorage.setItem('page', moviesApiService.page);
+    moviesApiService.query = searchQuery;
     moviesApiService
-      .fetchTrendingMovies()
+      .fetchSearchingMovies()
       .then(({ results }) => {
         const markup = makingMarkup(results);
 

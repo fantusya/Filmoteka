@@ -1,15 +1,13 @@
-import { refs } from './refs';
-import { getWatchedFilms, getQueueFilms } from './local_storage';
-import { createLibraryPagination } from './pagination-library';
+import { refs } from '../constants/refs';
+import { getWatchedFilms, getQueueFilms } from './storageActions';
+import { createLibraryPagination } from '../pagination/paginationLibrary';
 
 try {
   refs.btnWatched.addEventListener('click', onBtnWatchedClick);
   refs.btnQueue.addEventListener('click', onBtnQueueClick);
 } catch {
-  // console.log('Данных еще нет');
 }
 
-// createLibraryPagination('watched');
 export let currentLibrary = 'watched';
 try {
   createLibraryPagination(`${currentLibrary}`);

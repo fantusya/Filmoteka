@@ -1,10 +1,8 @@
-import { gettingGenresListForCard } from './gettingGenresList';
-import { setReleaseDate } from './setReleaseDate';
-import { setReleaseVote } from './setReleaseDate';
+import { gettingGenresListForCard } from '../helpers/gettingGenresList';
+import { setReleaseDate, setReleaseVote } from '../helpers/setReleaseInfo';
+import { BASE_POSTER_URL, FALLBACK_IMG_PATH } from '../constants/baseUrls';
+import { genresNotFound, noYearData } from '../helpers/noInfoFound';
 
-import { refs } from '../refs';
-
-export const BASE_POSTER_URL = `https://image.tmdb.org/t/p/w500`;
 
 export default function makingMarkup(results) {
   const markup = results
@@ -21,7 +19,7 @@ export default function makingMarkup(results) {
       }) => {
         let imagePath = ``;
         !poster_path
-          ? (imagePath = `https://raw.githubusercontent.com/marvall/filmoteka/main/src/images/no-poster.png`)
+          ? (imagePath = FALLBACK_IMG_PATH)
           : (imagePath = `${BASE_POSTER_URL}/${poster_path}`);
 
         return `<li data-aos="fade-up"
@@ -59,30 +57,13 @@ export default function makingMarkup(results) {
                     </p>   
                     </div>
                     </div>
-            </li>`;
+                </li>`;
       }
     )
     .join('');
   return markup;
 }
 
-function genresNotFound() {
-  const lang = localStorage.getItem('lang');
-  if (!lang || lang === 'en-US') {
-    return 'Genres not found';
-  }
-  if (lang === 'uk-UA') {
-    return 'Жанри не знайдено';
-  }
-  console.log('LAAAANG');
-}
 
-function noYearData() {
-  const lang = localStorage.getItem('lang');
-  if (!lang || lang === 'en-US') {
-    return 'No data';
-  }
-  if (lang === 'uk-UA') {
-    return 'Немає даних';
-  }
-}
+
+

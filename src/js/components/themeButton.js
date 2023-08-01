@@ -1,4 +1,4 @@
-import { refs } from './refs';
+import { refs } from '../constants/refs';
 
 // Добавление кнопки в HTML
 function addChangeBgColorBtn() {

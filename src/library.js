@@ -1,8 +1,8 @@
 // CHANGE COLOR OF HEADER-BUTTONS
-import './js/library-header-btns';
+import './js/helpers/libraryHeaderButtons';
 
 // PAGINATION FOR A LIBRARY PAGE
-import './js/pagination-library';
+import './js/pagination/paginationLibrary';
 
 //Усуває поимлку в консолі з модальним вікном
 // Якщо розкоментувати - буде помилка
@@ -13,14 +13,14 @@ import './js/pagination-library';
 import './js/api/loadModalCardLibrary';
 
 // MODAL IN FOOTER
-import './js/modal-students';
+import './js/studentsModal/modal';
 
 // scroll-up-btn
-import './js/scroll-up-btn';
+import './js/components/scrollUpBtn';
 
 // translate
-import './js/translation';
+import './js/translation/translationMap';
 
 // change BG color
-import './js/bg-color';
+import './js/components/themeButton';
 

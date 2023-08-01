@@ -1,36 +1,35 @@
 // FETCHING FOR THE FIRST TIME
-import * as fetchingApi from './js/api/main-home-file';
+import * as fetchingApi from './js/api/fetchingInfo';
 
 // PAGINATION FOR A MAIN PAGE
-import './js/pagination';
+import './js/pagination/pagination';
 
 // CHANGE TEXT OF MODAL-BTNS
-import './js/modal-btns';
+import './js/helpers/modalButtons';
 
 // searchFilmByKeyword
-import './js/searchFilmByKeyword/search_films_by_keyword_input';
-import './js/searchFilmByKeyword/search_films_by_keyword_submit';
+import './js/searchFilmByKeyword/searchingFilms';
 
 // OPEN MODAL CARD
 import './js/api/loadModalCard';
 
 // scroll-up-btn
-import './js/scroll-up-btn';
+import './js/components/scrollUpBtn';
 
 // MODAL IN FOOTER
-import './js/modal-students';
+import './js/studentsModal/modal';
 
 // animations
-import './js/vendors/aos';
+import './js/helpers/aos';
 
 // translation
-import './js/translation';
+import './js/translation/translationMap';
 
 // change BG color
-import './js/bg-color';
+import './js/components/themeButton';
 
 // advertising
-import './js/advertising';
+import './js/components/advertising';
 
 //movie-trailer
 // import './js/movie-trailer';

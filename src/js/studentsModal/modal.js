@@ -1,5 +1,5 @@
-import { data } from './api/data-students/data-students';
-import { translateMsg } from './teamInfoTranslate';
+import { data } from '../constants/studentsData';
+import { translateMsg } from '../translation/teamInfoTranslate';
 // console.log(data);
 
 // функция открытия и закрытия модального окна ,описывающего студентов

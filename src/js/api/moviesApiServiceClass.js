@@ -1,6 +1,6 @@
-import API_KEY from './constants/apiKeys';
-import { BASE_TRENDING_MOVIES_URL } from './constants/baseUrls';
-import { BASE_GENRE_URL } from './constants/baseUrls';
+import API_KEY from '../constants/apiKeys';
+import { BASE_TRENDING_MOVIES_URL } from '../constants/baseUrls';
+import { BASE_GENRE_URL } from '../constants/baseUrls';
 
 export default class MoviesApiService {
   constructor() {
